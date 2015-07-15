@@ -1,0 +1,60 @@
+---
+---
+<!doctype html>
+<html>
+<head>
+  <script src="/bower_components/d3/d3.min.js" charset="utf-8"></script>
+  <script src="/bower_components/js-yaml/dist/js-yaml.min.js" charset="utf-8"></script>
+  <script src="/bower_components/markdown-it/dist/markdown-it.min.js" charset="utf-8"></script>
+  <script src="/bower_components/riotjs/riot.min.js" charset="utf-8"></script>
+  <script src="/bower_components/highlightjs/highlight.pack.js" charset="utf-8"></script>
+  <script src="/bower_components/coffeescript/coffee-script.js"></script>
+  <style>
+    @import "http://cdn.pydata.org/bokeh/release/bokeh-0.8.0.min.css";
+  </style>
+  <script src="http://cdn.pydata.org/bokeh/release/bokeh-0.8.0.min.js"></script>
+  <!--script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script-->
+
+  <!--script src="http://thematicmapping.org/playground/d3/d3.slider/d3.slider.js"></script-->
+  {% include cmHead.html %}
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+  <link rel="stylesheet href="/bower_components/highlightjs/styles/default.css">
+
+
+</head>
+<body>
+  <div class="container">
+    <style>
+    .CodeMirror-fullscreen {
+      opacity: 0.7;
+    }
+    </style>
+
+    <textarea id="code-markdown" name="code">{% include bokehText.html %}</textarea></div>
+  </div>
+  <div id="bokeh" class="container"></div>
+  <script src='coffee/bokeh-editor.js'></script>
+
+  <!-- Compiled and minified JavaScript -->
+  <style>
+  text {
+    font-weight: 300;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serf;
+    font-size: 14px;
+  }
+
+  .node rect {
+    stroke: #333;
+    fill: #fff;
+    stroke-width: 1.5px;
+  }
+
+  .edgePath path.path {
+    stroke: #333;
+    fill: none;
+    stroke-width: 1.5px;
+  }
+  </style>
+</body>
+</html>

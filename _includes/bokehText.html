@@ -1,0 +1,48 @@
+###
+Create you Bokeh plot in this editor using CoffeeScript syntaxes.
+Press Ctrl-Enter to preview your plot at the bottom of the page.
+###
+
+r = new Bokeh.Random 123456789
+
+Npoints = 100
+
+x = r.randf() * 100 for i in _.range Npoints
+y = r.randf()*100 for i in _.range Npoints
+
+data =
+  x: x
+  y: y
+  radius: r.randf()+0.3 for i in _.range Npoints
+  color: ("rgb(#{ Math.floor(50+2*val[0]) }, #{ Math.floor(30+2*val[1]) }, 150)" for val in _.zip(x, y))
+
+
+scatter =
+  type: 'Circle'
+  source: "mydata"
+  x: 'x'
+  y: 'y'
+  radius: 'radius'
+  fill_color: 'color'
+  fill_alpha: 0.6
+  line_color: null
+
+
+options =
+  title: "Scatter Demo"
+  plot_width: 600
+  plot_height: 600
+  x_range: [0, 100]
+  y_range: [0, 100]
+
+
+xaxis =
+  type: "auto"
+  location: "below"
+  grid: true
+
+
+yaxis =
+  type: "auto"
+  location: "left"
+  grid: true
