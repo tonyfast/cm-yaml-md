@@ -1,15 +1,23 @@
-r = new Bokeh.Random(123456789)
+###
+Edit Bokeh plot data in this CodeMirror Editor using CoffeeScript syntaxes
+Press ``Ctrl-Enter`` to preview the plot at the bottom of the page.
+This demo was borrowed from jsfiddle.net/bokeh/Tw5Sm/light/
+###
 
-x = (r.randf()*100 for i in _.range(4000))
-y = (r.randf()*100 for i in _.range(4000))
-data = {
+r = new Bokeh.Random 123456789
+
+Npoints = 1000
+
+x = (r.randf()*100 for i in _.range Npoints)
+y = (r.randf()*100 for i in _.range Npoints )
+
+data =
   x: x
   y: y
-  radius: (r.randf()+0.3 for i in _.range(4000))
+  radius: (r.randf()+0.3 for i in _.range Npoints)
   color: ("rgb(#{ Math.floor(50+2*val[0]) }, #{ Math.floor(30+2*val[1]) }, 150)" for val in _.zip(x, y))
-}
 
-scatter = {
+scatter =
   type: 'Circle'
   source: "mydata"
   x: 'x'
@@ -18,24 +26,21 @@ scatter = {
   fill_color: 'color'
   fill_alpha: 0.6
   line_color: null
-}
 
-options = {
+options =
   title: "Scatter Demo"
   plot_width: 600
   plot_height: 600
   x_range: [0, 100]
   y_range: [0, 100]
-}
 
-xaxis = {
+xaxis =
   type: "auto"
   location: "below"
   grid: true
-}
 
-yaxis = {
+
+yaxis =
   type: "auto"
   location: "left"
   grid: true
-}
